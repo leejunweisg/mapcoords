@@ -1,0 +1,8 @@
+name: Mapcoords
+version: '${project.version}'
+main: me.overtide.mapcoords.Mapcoords
+api-version: 1.19
+authors: [ Overtide ]
+commands:
+  coords:
+    description: Save and teleport to coordinates.
