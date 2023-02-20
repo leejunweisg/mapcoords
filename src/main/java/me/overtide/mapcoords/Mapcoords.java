@@ -2,6 +2,7 @@ package me.overtide.mapcoords;
 
 import me.overtide.mapcoords.commands.CommandCoords;
 import me.overtide.mapcoords.commands.TabCompleteCoords;
+import me.overtide.mapcoords.utils.CoordsHUD;
 import me.overtide.mapcoords.utils.CoordsStorage;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,6 +19,9 @@ public final class Mapcoords extends JavaPlugin {
 
         // Load coords.json
         CoordsStorage.loadFromFile();
+
+        // Enable HUD Timer
+        CoordsHUD.run(this);
 
         // Register the 'coords' command
         this.getCommand("coords").setExecutor(new CommandCoords());

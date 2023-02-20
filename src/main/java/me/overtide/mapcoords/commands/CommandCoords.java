@@ -12,7 +12,6 @@ public class CommandCoords implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Mapcoords.getPlugin().getLogger().info(String.format("/coords called with: command: %s, label: %s args: %s", command, label, args.toString()));
 
         // Ensure command sender is a player
         if (!(sender instanceof Player)) {
@@ -31,19 +30,19 @@ public class CommandCoords implements CommandExecutor {
         String subcommand = args[0].toLowerCase();
         switch (subcommand) {
 
-            // Show the player's current location: /coords show <name>
-            case "show":
-                SubCommandShow.run(sender, command, label, args);
-                break;
-
-            // Save the player's current location: /coords save <name>
-            case "save":
-                SubCommandSave.run(sender, command, label, args);
-                break;
-
             // Delete a previously saved coordinates: /coords delete <name>
             case "delete":
                 SubCommandDelete.run(sender, command, label, args);
+                break;
+
+            // Display the help message: /coords help
+            case "help":
+                SubCommandHelp.run(sender, command, label, args);
+                break;
+
+            // Toggle the coordinates HUD: /coords hud
+            case "hud":
+                SubCommandHUD.run(sender, command, label, args);
                 break;
 
             // List all saved coordinates: /coords list
@@ -51,10 +50,17 @@ public class CommandCoords implements CommandExecutor {
                 SubCommandList.run(sender, command, label, args);
                 break;
 
-            case "help":
-                SubCommandHelp.run(sender, command, label, args);
+            // Save the player's current location: /coords save <name>
+            case "save":
+                SubCommandSave.run(sender, command, label, args);
                 break;
 
+            // Show the player's current location or saved location: /coords show [name]
+            case "show":
+                SubCommandShow.run(sender, command, label, args);
+                break;
+
+            // Teleport the player to a saved location: /coords tp <name>
             case "tp":
                 SubCommandTp.run(sender, command, label, args);
                 break;

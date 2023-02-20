@@ -11,6 +11,7 @@ public class SubCommandHelp {
                 ChatColor.GRAY +
                 "  /coords delete <name>\n" +
                 "  /coords help\n" +
+                "  /coords hud\n" +
                 "  /coords list\n" +
                 "  /coords save <name>\n" +
                 "  /coords show [name]\n" +

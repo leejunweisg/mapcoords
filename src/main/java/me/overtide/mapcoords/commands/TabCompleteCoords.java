@@ -18,7 +18,7 @@ public class TabCompleteCoords implements TabCompleter {
         ArrayList<String> result = new ArrayList<String>();
 
         if (args.length == 1) {  // subcommands level
-            List<String> subcommands = Arrays.asList("show", "save", "delete", "list", "help", "tp");
+            List<String> subcommands = Arrays.asList("delete", "help", "hud", "list", "save", "show", "tp");
 
             for (String s : subcommands) {
                 if (s.startsWith(args[0].toLowerCase())) {
